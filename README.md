@@ -1,5 +1,7 @@
 # sustainable-product-system
 # Sustainable Product System
+## Notes
+Simple project for OOD course
 
 ## Description
 
