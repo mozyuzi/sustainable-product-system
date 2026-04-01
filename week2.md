@@ -15,11 +15,11 @@ Relationships:
 
 ## Class Responsibilities
 
-### Product
-Represents a product with a name, category, and list of materials. It connects materials and category.
+### Product (Produkt)
+Den här klassen håller koll på en vara. Den sparar vad varan heter, vilken kategori den tillhör och vilka material den är gjord av. Man kan säga att det är här all information om en färdig sak samlas..
 
-### Material
-Represents a material with a name and environmental impact value. It can be used in multiple products.
+### Material (Material)
+Den här klassen beskriver de olika ämnen som en produkt består av. Den håller reda på vad materialet heter och hur mycket det påverkar miljön. Samma material kan användas i många olika produkter.
 
-### Category
-Represents the type of a product. It is used to group products.
+### Category (Kategori)
+Den här klassen används för att sortera produkterna i olika grupper, till exempel "Elektronik" eller "Kläder". Den sparar namnet på gruppen så att det blir lättare att hålla ordning på och hitta bland alla varor.
