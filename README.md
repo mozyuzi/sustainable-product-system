@@ -94,7 +94,7 @@ The system helps users understand products and how to recycle them.
 
 * Recycling Information
 
----
+----
 
 ## UML
 
