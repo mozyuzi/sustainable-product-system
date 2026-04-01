@@ -30,5 +30,5 @@ This class is used to sort products into different groups, such as "Electronics"
 
 ## Design Notes
 
--No functional business logic has been implemented at this stage.
--The design will be refined in later weeks after the current is evaluated.
+- No functional business logic has been implemented at this stage.
+- The design will be refined in later weeks after the current is evaluated.
