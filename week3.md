@@ -44,7 +44,7 @@ The design introduces an abstraction (EnvironmentalImpactStrategy), reducing dep
 The updated model includes:
 
 - Product 1 → 1..* ProductMaterial  
-- ProductMaterial * → 1 Material  
+- ProductMaterial 1..* → 1 Material  
 - Product 1 → 1 Category  
 
 - EnvironmentalImpactStrategy interface  
