@@ -23,3 +23,29 @@ Added two implementations:
 * WeightedImpactStrategy
 
 ---
+## Design Principles Applied
+
+### SRP
+Responsibilities are separated:
+- Product → product data  
+- Material → reusable material data  
+- ProductMaterial → material composition  
+
+### OCP
+The strategy interface allows new impact calculations to be added without modifying existing classes.
+
+### DIP
+The design introduces an abstraction (EnvironmentalImpactStrategy), reducing dependency on concrete implementations.
+
+---
+
+## UML Class Diagram (Version 2)
+
+The updated model includes:
+
+- Product 1 → 1..* ProductMaterial  
+- ProductMaterial * → 1 Material  
+- Product 1 → 1 Category  
+
+- EnvironmentalImpactStrategy interface  
+- StandardImpactStrategy and WeightedImpactStrategy implementations  
