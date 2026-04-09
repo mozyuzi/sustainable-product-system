@@ -48,4 +48,14 @@ The updated model includes:
 - Product 1 → 1 Category  
 
 - EnvironmentalImpactStrategy interface  
-- StandardImpactStrategy and WeightedImpactStrategy implementations  
+- StandardImpactStrategy and WeightedImpactStrategy implementations
+
+<img width="1105" height="721" alt="umlv2" src="https://github.com/user-attachments/assets/35b068c2-caec-4807-87ff-b4dbd513549c" />
+
+
+---
+
+## Notes
+
+- No functional business logic has been implemented.
+- The design prepares the system for future extensions.
