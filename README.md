@@ -95,9 +95,3 @@ The system helps users understand products and how to recycle them.
 * Recycling Information
 
 ----
-
-## UML
-
-<img width="759" height="580" alt="image" src="https://github.com/user-attachments/assets/9278247d-43aa-4d39-aad4-47eceea45643" />
-
-
