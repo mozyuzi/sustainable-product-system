@@ -27,3 +27,30 @@ This week focuses on understanding the problem domain and translating the projec
 - The system must have clear separation of concerns  
 
 ---
+
+## System Boundary
+
+### Inside the system:
+- Product management  
+- Material management  
+- Environmental impact calculation  
+- Recycling guidance generation  
+
+### Outside the system:
+- User interface (console or GUI)  
+- Database or file storage  
+- External services  
+
+---
+
+## Domain Concepts
+
+- Product  
+- Material  
+- Category  
+- Lifespan  
+- RecyclingCategory  
+- RecyclingGuidance  
+- ImpactCalculationStrategy  
+
+---
