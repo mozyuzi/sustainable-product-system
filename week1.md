@@ -54,3 +54,28 @@ This week focuses on understanding the problem domain and translating the projec
 - ImpactCalculationStrategy  
 
 ---
+## Domain Classification
+
+- Product → Entity  
+- Material → Entity  
+- Category → Entity  
+
+- Lifespan → Value Object  
+- RecyclingCategory → Value Object  
+- RecyclingGuidance → Value Object  
+
+- ImpactCalculationStrategy → Service  
+
+---
+
+## Notes
+
+- This week focuses only on analysis, not design or implementation  
+- No classes, code, or technical details are included  
+- The goal is to prepare a clear and structured foundation for the domain model  
+
+---
+
+## Summary
+
+Week 1 establishes a clear understanding of the system by defining requirements, identifying domain concepts, and classifying them. This provides the foundation for building the domain model in Week 2.
