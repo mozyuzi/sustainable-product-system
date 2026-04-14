@@ -82,4 +82,8 @@ The model focuses on the core domain concepts:
 - Category  
 - Lifespan  
 - Recycling  
-- Impact calculation  
+- Impact calculation
+
+<img width="1277" height="842" alt="image" src="https://github.com/user-attachments/assets/9d03b5f7-4340-4567-abd4-defa061d9cc1" />
+
+
