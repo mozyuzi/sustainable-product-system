@@ -9,6 +9,8 @@ This week focuses on creating the first version of the domain model (UML v1) and
 ---
 
 ## UML Class Diagram v1
+<img width="1277" height="842" alt="image" src="https://github.com/user-attachments/assets/2bbd636f-930e-49df-a6d8-7ad26bc6e231" />
+
 
 
 
@@ -84,6 +86,6 @@ The model focuses on the core domain concepts:
 - Recycling  
 - Impact calculation
 
-<img width="1277" height="842" alt="image" src="https://github.com/user-attachments/assets/9d03b5f7-4340-4567-abd4-defa061d9cc1" />
+
 
 
