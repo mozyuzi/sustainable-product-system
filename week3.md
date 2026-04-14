@@ -65,3 +65,42 @@ AdvancedImpactCalculation provides a more detailed calculation method. It allows
 
 ---
 
+### ProductService
+
+ProductService coordinates operations related to products. It delegates calculations to strategies and gathers results such as recycling guidance. It should not store data itself.
+
+---
+
+## Design Changes from Week 2
+
+- Introduced ProductService to handle coordination logic
+- Introduced strategy pattern for impact calculation
+- Separated calculation responsibility from Product
+- Improved extensibility for future features
+
+---
+
+## Design Principles Applied
+
+- Separation of concerns
+- Single Responsibility Principle
+- Strategy pattern for flexible calculations
+- Avoiding logic inside entities
+
+---
+
+## Notes
+
+- Still no full implementation
+- Focus is on structure and responsibilities
+- Design prepares for Week 4 (implementation)
+
+---
+
+## Summary
+
+Week 3 builds on Week 2 by:
+
+- Expanding the model with service and strategy concepts
+- Improving responsibility distribution
+- Preparing the system for implementation
