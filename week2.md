@@ -4,7 +4,94 @@
 
 ## Overview
 
-This week focuses on creating the first version of the domain model (UML v1) and assigning clear responsibilities to each class. The goal is to model the problem domain using the language of the requirements, without implementation details, UI concerns, or database concerns.
+This week focuses on creating CRC cards for the candidate concepts and converting them to the first version of the domain model (UML v1) and assigning clear responsibilities to each class. The goal is to model the problem domain using the language of the requirements, without implementation details, UI concerns, or database concerns.
+
+---
+
+## CRC Cards
+
+---
+
+## Product
+
+**Type:** Entity
+
+### Responsibilities
+- Represent a product in the system  
+- Know its name, category, and lifespan  
+- Hold its list of materials (1..*)  
+
+### Collaborators
+- Category  
+- Material  
+- Lifespan  
+
+---
+
+## Material
+
+**Type:** Entity
+
+### Responsibilities
+- Represent a material used in products  
+- Know its name and environmental impact value  
+- Know how it should be recycled  
+
+### Collaborators
+- RecyclingCategory  
+
+---
+
+## Category
+
+**Type:** Entity
+
+### Responsibilities
+- Represent the classification of a product  
+- Know the name of the category  
+
+### Collaborators
+- Product  
+
+---
+
+## RecyclingCategory
+
+**Type:** Entity
+
+### Responsibilities
+- Represent how a material is recycled  
+- Know the name of the recycling category  
+
+### Collaborators
+- Material  
+
+---
+
+## Lifespan
+
+**Type:** Value Object
+
+### Responsibilities
+- Represent the expected lifespan of a product  
+- Know its value in years  
+
+### Collaborators
+- Product  
+
+---
+
+## RecyclingGuidance
+
+**Type:** Entity
+
+### Responsibilities
+- Represent recycling information for a product  
+- Summarize how its materials should be handled  
+
+### Collaborators
+- Product  
+- Material
 
 ---
 
