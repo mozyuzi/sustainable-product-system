@@ -25,3 +25,12 @@ The system is divided into three layers:
   - Includes impact calculation strategies
 
 ---
+## Dependency Direction
+
+The dependencies follow this direction:
+
+Presentation → Application → Domain
+
+- The presentation layer depends on the application layer
+- The application layer depends on the domain layer
+- The domain layer does not depend on other layers
