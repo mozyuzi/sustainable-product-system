@@ -10,7 +10,8 @@ The design now begins to separate concerns and prepare for interaction between c
 
 ## Updated UML Class Diagram
 
-<img width="1138" height="791" alt="UML (v2)" src="https://github.com/user-attachments/assets/c3ead3c6-2b8b-451b-8527-2284bbd42490" />
+<img width="1138" height="791" alt="UML (v2)" src="https://github.com/user-attachments/assets/e522eef4-435b-4bb5-94c4-6fbfda754a46" />
+
 
 ## Responsibility Descriptions
 
