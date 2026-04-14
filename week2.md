@@ -12,86 +12,74 @@ This week focuses on creating CRC cards for the candidate concepts and convertin
 
 ---
 
-## Product
+### 🟦 Product (Entity)
 
-**Type:** Entity
-
-### Responsibilities
+**Responsibilities**
 - Represent a product in the system  
 - Know its name, category, and lifespan  
 - Hold its list of materials (1..*)  
 
-### Collaborators
+**Collaborators**
 - Category  
 - Material  
 - Lifespan  
 
 ---
 
-## Material
+### 🟪 Material (Entity)
 
-**Type:** Entity
-
-### Responsibilities
+**Responsibilities**
 - Represent a material used in products  
 - Know its name and environmental impact value  
 - Know how it should be recycled  
 
-### Collaborators
+**Collaborators**
 - RecyclingCategory  
 
 ---
 
-## Category
+### 🟩 Category (Entity)
 
-**Type:** Entity
-
-### Responsibilities
+**Responsibilities**
 - Represent the classification of a product  
 - Know the name of the category  
 
-### Collaborators
+**Collaborators**
 - Product  
 
 ---
 
-## RecyclingCategory
+### 🟨 RecyclingCategory (Entity)
 
-**Type:** Entity
-
-### Responsibilities
+**Responsibilities**
 - Represent how a material is recycled  
 - Know the name of the recycling category  
 
-### Collaborators
+**Collaborators**
 - Material  
 
 ---
 
-## Lifespan
+### 🟧 Lifespan (Value Object)
 
-**Type:** Value Object
-
-### Responsibilities
+**Responsibilities**
 - Represent the expected lifespan of a product  
 - Know its value in years  
 
-### Collaborators
+**Collaborators**
 - Product  
 
 ---
 
-## RecyclingGuidance
+### 🟥 RecyclingGuidance (Entity)
 
-**Type:** Entity
-
-### Responsibilities
+**Responsibilities**
 - Represent recycling information for a product  
 - Summarize how its materials should be handled  
 
-### Collaborators
+**Collaborators**
 - Product  
-- Material
+- Material  
 
 ---
 
