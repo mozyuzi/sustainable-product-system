@@ -69,12 +69,6 @@ ImpactCalculationStrategy represents the concept of calculating environmental im
 
 ---
 
-## Alternative Design Choice
-
-We considered storing recycling information directly inside the Material class. This approach was rejected because recycling guidance may depend on multiple materials within a product. Therefore, RecyclingGuidance was modeled as a separate concept to allow future flexibility.
-
----
-
 ## Summary
 
 The model focuses on the core domain concepts:
