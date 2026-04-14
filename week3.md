@@ -29,3 +29,39 @@ Material represents a reusable material definition. It stores environmental impa
 Category classifies products into logical groups. It provides structure for organizing products within the domain.
 
 ---
+### Lifespan
+
+Lifespan represents the expected duration of a product. It improves clarity compared to using a primitive value.
+
+---
+
+### RecyclingCategory
+
+RecyclingCategory represents how a material should be handled during recycling. It standardizes recycling classification.
+
+---
+
+### RecyclingGuidance
+
+RecyclingGuidance represents the result of recycling decisions for a product. It provides a structured output of recycling logic.
+
+---
+
+### ImpactCalculationStrategy
+
+ImpactCalculationStrategy defines the role of calculating environmental impact. It allows multiple interchangeable calculation methods.
+
+---
+
+### SimpleImpactCalculation
+
+SimpleImpactCalculation provides a basic way to calculate environmental impact. It represents one possible strategy.
+
+---
+
+### AdvancedImpactCalculation
+
+AdvancedImpactCalculation provides a more detailed calculation method. It allows the system to support more complex impact evaluation.
+
+---
+
