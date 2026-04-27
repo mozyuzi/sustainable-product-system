@@ -27,17 +27,15 @@ public class ProductService {
     }
 
     public double calculateImpactByName(String name) {
-        for (Product product : products) {
-            if (product.getName().equalsIgnoreCase(name)) {
-                return calculateImpact(product);
-            }
+    for (Product product : products) {
+        if (product.getName().equalsIgnoreCase(name)) {
+            return calculateImpact(product);
         }
-        return 0;
     }
+    throw new IllegalArgumentException("Product not found: " + name);
+}
 
     public RecyclingGuidance getRecyclingGuidance(Product product) {
         return new RecyclingGuidance();
     }
 }
-
-
