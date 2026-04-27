@@ -64,8 +64,11 @@ public class ConsoleUI {
         System.out.print("Enter product name: ");
         String name = scanner.nextLine();
 
-        double impact = productService.calculateImpactByName(name);
-
-        System.out.println("Impact: " + impact);
+        try {
+            double impact = productService.calculateImpactByName(name);
+            System.out.println("Impact: " + impact);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
