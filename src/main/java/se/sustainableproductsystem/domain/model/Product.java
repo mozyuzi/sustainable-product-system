@@ -7,4 +7,11 @@ public class Product {
     private Category category;
     private Lifespan lifespan;
     private List<Material> materials;
-}
+
+    public Product(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
