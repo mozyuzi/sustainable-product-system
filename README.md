@@ -19,8 +19,8 @@ The goal of this project is to practice object-oriented design by transforming r
 - week2.md – Domain model (UML + responsibilities)  
 - week3.md – Design model and services
 - week4.md – Layered Architecture Implementation
-- week5 – Console UI implementation
-- week6 – Code review and design refinement
+- week5.md – Console UI implementation
+- week6.md – Code review and design refinement
 
 ## Architecture
 
