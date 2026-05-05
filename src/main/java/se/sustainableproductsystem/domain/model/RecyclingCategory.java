@@ -1,7 +1,17 @@
 package se.sustainableproductsystem.domain.model;
 
 public class RecyclingCategory {
-    private String name;
-}
+    private final String name;
 
+    public RecyclingCategory(String name) {
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException("Recycling category name cannot be empty.");
+        }
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
 
