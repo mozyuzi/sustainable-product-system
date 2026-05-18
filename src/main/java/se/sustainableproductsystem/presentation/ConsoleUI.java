@@ -22,158 +22,189 @@ public class ConsoleUI {
         boolean running = true;
 
         while (running) {
-            System.out.println();
-            System.out.println("Sustainable Product & Recycling Management System");
-            System.out.println("1. Add material");
-            System.out.println("2. Add product");
-            System.out.println("3. List products");
-            System.out.println("4. View product details");
-            System.out.println("5. Calculate impact");
-            System.out.println("6. Show recycling guidance");
-            System.out.println("7. Change impact calculation method");
-            System.out.println("0. Exit");
-            System.out.print("Choose option: ");
+            printMenu();
+            String choice = readInput("Choose option: ");
+            running = handleMenuChoice(choice);
+        }
+    }
 
-            String choice = scanner.nextLine();
+    private void printMenu() {
+        System.out.println();
+        System.out.println("Sustainable Product & Recycling Management System");
+        System.out.println("1. Add material");
+        System.out.println("2. Add product");
+        System.out.println("3. List products");
+        System.out.println("4. View product details");
+        System.out.println("5. Calculate impact");
+        System.out.println("6. Show recycling guidance");
+        System.out.println("7. Change impact calculation method");
+        System.out.println("0. Exit");
+    }
 
-            switch (choice) {
-                case "1":
-                    addMaterial();
-                    break;
-                case "2":
-                    addProduct();
-                    break;
-                case "3":
-                    listProducts();
-                    break;
-                case "4":
-                    viewProductDetails();
-                    break;
-                case "5":
-                    calculateImpact();
-                    break;
-                case "6":
-                    showRecyclingGuidance();
-                    break;
-                case "7":
-                    changeCalculationMethod();
-                    break;
-                case "0":
-                    running = false;
-                    break;
-                default:
-                    System.out.println("Invalid option.");
-            }
+    private boolean handleMenuChoice(String choice) {
+        switch (choice) {
+            case "1":
+                addMaterial();
+                return true;
+            case "2":
+                addProduct();
+                return true;
+            case "3":
+                listProducts();
+                return true;
+            case "4":
+                viewProductDetails();
+                return true;
+            case "5":
+                calculateImpact();
+                return true;
+            case "6":
+                showRecyclingGuidance();
+                return true;
+            case "7":
+                changeCalculationMethod();
+                return true;
+            case "0":
+                return false;
+            default:
+                showMessage("Invalid option.");
+                return true;
         }
     }
 
     private void addMaterial() {
-        System.out.print("Enter material name: ");
-        String name = scanner.nextLine();
-
-        System.out.print("Enter environmental impact value: ");
-        double impactValue = Double.parseDouble(scanner.nextLine());
-
-        System.out.print("Enter recycling category: ");
-        String recyclingCategory = scanner.nextLine();
-
-        System.out.print("Enter recycling instruction: ");
-        String recyclingInstruction = scanner.nextLine();
+        String name = readInput("Enter material name: ");
+        double impactValue = readDouble("Enter environmental impact value: ");
+        String recyclingCategory = readInput("Enter recycling category: ");
+        String recyclingInstruction = readInput("Enter recycling instruction: ");
 
         productService.createMaterial(name, impactValue, recyclingCategory, recyclingInstruction);
-        System.out.println("Material added.");
+        showMessage("Material added.");
     }
 
     private void addProduct() {
         if (productService.getMaterials().isEmpty()) {
-            System.out.println("Add at least one material before creating a product.");
+            showMessage("Add at least one material before creating a product.");
             return;
         }
 
-        System.out.print("Enter product name: ");
-        String name = scanner.nextLine();
-
-        System.out.print("Enter category: ");
-        String category = scanner.nextLine();
-
-        System.out.print("Enter estimated lifespan in years: ");
-        int lifespanYears = Integer.parseInt(scanner.nextLine());
+        String name = readInput("Enter product name: ");
+        String category = readInput("Enter category: ");
+        int lifespanYears = readInt("Enter estimated lifespan in years: ");
 
         List<Material> selectedMaterials = selectMaterials();
         productService.createProduct(name, category, lifespanYears, selectedMaterials);
 
-        System.out.println("Product added.");
+        showMessage("Product added.");
+    }
+
+    private List<Material> selectMaterials() {
+        List<Material> selectedMaterials = new ArrayList<>();
+        List<Material> availableMaterials = productService.getMaterials();
+
+        showMessage("Available materials:");
+
+        for (int i = 0; i < availableMaterials.size(); i++) {
+            Material material = availableMaterials.get(i);
+            System.out.println((i + 1) + ". " + material.getName());
+        }
+
+        String input = readInput("Enter material numbers separated by comma: ");
+        String[] selectedIndexes = input.split(",");
+
+        for (String indexText : selectedIndexes) {
+            int index = Integer.parseInt(indexText.trim()) - 1;
+
+            if (index >= 0 && index < availableMaterials.size()) {
+                selectedMaterials.add(availableMaterials.get(index));
+            }
+        }
+
+        return selectedMaterials;
     }
 
     private void listProducts() {
         if (productService.getProducts().isEmpty()) {
-            System.out.println("No products registered.");
+            showMessage("No products registered.");
             return;
         }
 
         for (Product product : productService.getProducts()) {
-            System.out.println(product.getName());
+            showMessage(product.getName());
         }
     }
 
     private void viewProductDetails() {
         Product product = findProductByName();
+
         if (product == null) {
             return;
         }
 
+        printProductDetails(product);
+    }
+
+    private void printProductDetails(Product product) {
         System.out.println("Name: " + product.getName());
         System.out.println("Category: " + product.getCategory().getName());
         System.out.println("Lifespan: " + product.getLifespan().getYears() + " years");
+        printMaterials(product);
+    }
+
+    private void printMaterials(Product product) {
         System.out.println("Materials:");
+
         for (Material material : product.getMaterials()) {
             System.out.println("- " + material.getName()
                     + " (impact " + material.getImpactValue()
                     + ", " + material.getRecyclingCategory().getName() + ")");
         }
-        System.out.println("Impact: " + productService.calculateImpact(product));
     }
 
     private void calculateImpact() {
-        Product product = findProductByName();
-        if (product == null) {
-            return;
-        }
+        String name = readInput("Enter product name: ");
 
-        double impact = productService.calculateImpact(product);
-        System.out.println("Impact: " + impact);
+        try {
+            double impact = productService.calculateImpactByName(name);
+            showMessage("Impact: " + impact);
+        } catch (IllegalArgumentException exception) {
+            showMessage(exception.getMessage());
+        }
     }
 
     private void showRecyclingGuidance() {
         Product product = findProductByName();
+
         if (product == null) {
             return;
         }
 
         RecyclingGuidance guidance = productService.getRecyclingGuidance(product);
-        System.out.println(guidance.getSummary());
+        showMessage(guidance.getSummary());
     }
 
     private void changeCalculationMethod() {
-        System.out.println("1. Simple calculation");
-        System.out.println("2. Advanced calculation");
-        System.out.print("Choose method: ");
-        String choice = scanner.nextLine();
+        showMessage("1. Simple impact calculation");
+        showMessage("2. Advanced impact calculation");
 
-        if ("1".equals(choice)) {
-            productService.setImpactCalculationStrategy(new SimpleImpactCalculation());
-            System.out.println("Simple calculation selected.");
-        } else if ("2".equals(choice)) {
-            productService.setImpactCalculationStrategy(new AdvancedImpactCalculation());
-            System.out.println("Advanced calculation selected.");
-        } else {
-            System.out.println("Invalid calculation method.");
+        String choice = readInput("Choose calculation method: ");
+
+        switch (choice) {
+            case "1":
+                productService.setImpactCalculationStrategy(new SimpleImpactCalculation());
+                showMessage("Simple impact calculation selected.");
+                break;
+            case "2":
+                productService.setImpactCalculationStrategy(new AdvancedImpactCalculation());
+                showMessage("Advanced impact calculation selected.");
+                break;
+            default:
+                showMessage("Invalid calculation method.");
         }
     }
 
     private Product findProductByName() {
-        System.out.print("Enter product name: ");
-        String name = scanner.nextLine();
+        String name = readInput("Enter product name: ");
 
         for (Product product : productService.getProducts()) {
             if (product.getName().equalsIgnoreCase(name)) {
@@ -181,38 +212,24 @@ public class ConsoleUI {
             }
         }
 
-        System.out.println("Product not found: " + name);
+        showMessage("Product not found: " + name);
         return null;
     }
 
-    private List<Material> selectMaterials() {
-        List<Material> selectedMaterials = new ArrayList<>();
-        boolean selecting = true;
+    private String readInput(String prompt) {
+        System.out.print(prompt);
+        return scanner.nextLine();
+    }
 
-        while (selecting) {
-            System.out.println("Available materials:");
-            for (int i = 0; i < productService.getMaterials().size(); i++) {
-                Material material = productService.getMaterials().get(i);
-                System.out.println((i + 1) + ". " + material.getName());
-            }
+    private int readInt(String prompt) {
+        return Integer.parseInt(readInput(prompt));
+    }
 
-            System.out.print("Choose material number, or 0 when done: ");
-            int choice = Integer.parseInt(scanner.nextLine());
+    private double readDouble(String prompt) {
+        return Double.parseDouble(readInput(prompt));
+    }
 
-            if (choice == 0) {
-                if (selectedMaterials.isEmpty()) {
-                    System.out.println("Select at least one material.");
-                } else {
-                    selecting = false;
-                }
-            } else if (choice > 0 && choice <= productService.getMaterials().size()) {
-                selectedMaterials.add(productService.getMaterials().get(choice - 1));
-                System.out.println("Material selected.");
-            } else {
-                System.out.println("Invalid material number.");
-            }
-        }
-
-        return selectedMaterials;
+    private void showMessage(String message) {
+        System.out.println(message);
     }
 }
