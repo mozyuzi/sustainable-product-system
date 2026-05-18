@@ -23,6 +23,7 @@ The goal of this project is to practice object-oriented design by transforming r
 - week6.md – Code review and design refinement
 - week7.md – Strategy pattern implementation
 - week8.md – Unit testing and CI integration
+- week9.md – Refactoring with Safety Net
 
 ## Architecture
 
