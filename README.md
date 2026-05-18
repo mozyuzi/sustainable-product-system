@@ -37,11 +37,6 @@ Presentation → Application → Domain
 
 This structure keeps business logic independent from the UI and improves maintainability and testability.
 
-Dependency direction:
-Presentation → Application → Domain
-
-This structure keeps business logic independent from the UI and improves maintainability and testability.
-
 ## Build, Run, and Test
 
 The project uses Maven and JUnit 5.
