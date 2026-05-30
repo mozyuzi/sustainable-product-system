@@ -24,6 +24,9 @@ The goal of this project is to practice object-oriented design by transforming r
 - week7.md – Strategy pattern implementation
 - week8.md – Unit testing and CI integration
 - week9.md – Refactoring with Safety Net
+- week10.md - Sequence Diagram
+- week11.md - CI Stability and Git Quality
+- week12.md - Design Reflection
 
 ## Architecture
 
@@ -68,3 +71,56 @@ Two strategies are currently implemented:
 
 The console UI allows the active strategy to be changed at runtime. This solves the design problem where impact calculation rules may change or expand without forcing changes into the `Product` entity.
 
+## Design Reflection
+
+### Introduction
+The goal of this project was to develop a Sustainable Product and Recycling Management
+System while applying object-oriented design principles and software engineering practices.
+Throughout the project, we focused on creating a system that is maintainable, testable, and
+easy to extend.
+
+### Architecture
+One of the most important decisions was using a layered architecture with Presentation,
+Application, and Domain layers. We chose this approach to keep the user interface separate
+from the business logic.
+This separation made the code easier to understand and maintain. It also improved
+testability because the domain logic could be tested without involving the console interface.
+
+### Design Principles and Strategy Pattern
+The project was strongly influenced by the principles SRP, OCP, and DIP.
+SRP helped us keep responsibilities separated between classes. Product stores product
+information, Material stores material information, and services coordinate application
+workflows.
+OCP became important when implementing environmental impact calculations. Instead of
+modifying existing classes whenever a new calculation method is needed, we used the
+Strategy pattern.
+The Strategy pattern allowed us to create multiple calculation methods through the
+ImpactCalculationStrategy interface. This made the system more flexible and easier to
+extend. Looking back, the pattern solved a real design problem and was not only added to
+satisfy a project requirement.
+DIP was applied by letting services depend on the strategy interface rather than concrete
+implementations. This reduced coupling and improved flexibility
+
+### Testing and Refactoring
+Testing became increasingly valuable as the project grew. Unit tests allowed us to verify that
+calculations worked correctly and gave us confidence when making changes.
+During refactoring, the tests acted as a safety net and helped us improve the structure of the
+code without breaking existing functionality.
+
+### Future Improvements
+If the project were continued, one improvement would be adding persistent storage so
+products and materials are saved between program runs.
+Another improvement would be stronger input validation and more comprehensive testing of
+edge cases.
+
+### Conclusion
+This project helped us understand how design principles, testing, and design patterns work
+together in practice. The layered architecture and Strategy pattern created a system that is
+easier to maintain and extend. Overall, the project provided valuable experience in designing
+and implementing a structured object-oriented application.
+
+## Documentation
+
+### UML Diagrams
+- [Class Diagram](docs/class_diagram.png)
+- [Sequence Diagram](docs/sequence_diagram.png)
